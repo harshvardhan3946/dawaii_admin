@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:security="http://www.springframework.org/schema/security"
+       xmlns:sec="http://www.springframework.org/schema/security"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/security
+       http://www.springframework.org/schema/security/spring-security-3.2.xsd">
+
+    <security:http auto-config="true">
+        <!--<security:intercept-url pattern="/products/**" access="hasRole('ICONNECT_WEBSITE_ROLE_USER')" />-->
+
+        <security:intercept-url pattern="/test/**" access="ROLE_USER" />
+        <security:form-login
+                login-page="/login"
+                default-target-url="/ambulance/registerPage"
+                authentication-failure-url="/login?error"
+                username-parameter="username"
+                password-parameter="password"/>
+        <security:logout invalidate-session="true" logout-success-url="/users/login?logout" />
+        <!--<security:intercept-url pattern="/orders/**" access="hasRole('ICONNECT_WEBSITE_ROLE_USER')" />
+        <security:intercept-url pattern="/orderstate/**" access="hasRole('ICONNECT_WEBSITE_ROLE_USER')" />
+        <security:access-denied-handler error-page="/accessDenied" />
+        <security:form-login
+                login-page="/users/login"
+                default-target-url="/products/list"
+                authentication-failure-url="/users/login?error"
+                username-parameter="username"
+                password-parameter="password"/>
+        <security:logout invalidate-session="true" logout-success-url="/users/login?logout" />-->
+        <!-- enable csrf protection -->
+        <!-- <security:csrf/>-->
+    </security:http>
+
+    <!--    &lt;!&ndash; Persistent Remember Me Service &ndash;&gt;
+        <bean id="rememberMeAuthenticationProvider" class=
+                "org.springframework.security.web.authentication.rememberme.PersistentTokenBasedRememberMeServices">
+            <property name="key" value="myAppKey" />
+            <property name="tokenRepository" ref="jdbcTokenRepository" />
+            <property name="userDetailsService" ref="customUserDetailsService" />
+        </bean>-->
+
+    <bean id ="customUserDetailsService" class="com.dawaaii.auth.UserDetailServiceImpl"></bean>
+
+
+    <security:authentication-manager alias="authenticationManager">
+        <security:authentication-provider user-service-ref="customUserDetailsService">
+           <security:password-encoder hash="md5"></security:password-encoder>
+        </security:authentication-provider>
+    </security:authentication-manager>
+
+</beans>
