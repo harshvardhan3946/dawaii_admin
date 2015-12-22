@@ -11,7 +11,8 @@
     <title></title>
 </head>
 <body>
-<form action="/ambulance/register" method="post">
+<form action="/ambulance/register" method="post" enctype="multipart/form-data">
+    Image of Ambulance: <input type="file" name="file"/>
     Service Provider Name: <input type="text" name="serviceProviderName"/><br>
     Description: <input type="text" name="description"/><br>
     City: <input type="text" name="city"/><br>
@@ -21,7 +22,6 @@
     Contact Number: <input type="text" name="contactNumber"/><br>
     Mobile Number: <input type="text" name="mobileNumber"/><br>
     Email: <input type="text" name="email"/><br>
-    Image Path: <input type="text" name="imagePath"/><br>
     <button type="submit">Submit</button>
 </form>
 </body>

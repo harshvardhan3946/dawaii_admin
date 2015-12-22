@@ -15,7 +15,10 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
-    <mongo:repositories mongo-template-ref="dawaaiiMongoTemplate" base-package="com.dawaaii.repository.mongo"></mongo:repositories>
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+
+
+<mongo:repositories mongo-template-ref="dawaaiiMongoTemplate" base-package="com.dawaaii.repository.mongo"></mongo:repositories>
 
     <mongo:mongo-client id="dawaaiiReplicaSetMongoClient" replica-set="localhost:27017">
         <mongo:client-options

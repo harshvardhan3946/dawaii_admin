@@ -3,6 +3,8 @@ package com.dawaaii.viewmodel.ambulance;
 import com.dawaaii.model.ambulance.Ambulance;
 import com.dawaaii.model.vendor.Vendor;
 import org.springframework.data.geo.Point;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 /**
  * Created by rohit on 10/12/15.
@@ -21,6 +23,7 @@ public class AmbulanceViewModel {
     private Point point;
     private Vendor vendor;
     private String imagePath;
+    private CommonsMultipartFile file;
 
     public Ambulance getAmbulanceFromViewModel(Vendor vendor){
         Ambulance ambulance = new Ambulance();
@@ -133,5 +136,13 @@ public class AmbulanceViewModel {
 
     public void setImagePath(String imagePath) {
         this.imagePath = imagePath;
+    }
+
+    public CommonsMultipartFile getFile() {
+        return file;
+    }
+
+    public void setFile(CommonsMultipartFile file) {
+        this.file = file;
     }
 }
