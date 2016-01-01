@@ -1,9 +1,11 @@
 package com.dawaaii.controller;
 
 import com.dawaaii.model.ambulance.Ambulance;
+import com.dawaaii.model.ambulancebooking.AmbulanceBooking;
 import com.dawaaii.model.order.Order;
 import com.dawaaii.model.vendor.Vendor;
 import com.dawaaii.service.ambulance.AmbulanceService;
+import com.dawaaii.service.ambulancebooking.AmbulanceBookingService;
 import com.dawaaii.service.order.OrderService;
 import com.dawaaii.service.vendor.VendorService;
 import com.dawaaii.util.FileUtil;
@@ -20,6 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -36,7 +39,7 @@ public class AmbulanceController {
     @Autowired
     private VendorService vendorService;
     @Autowired
-    private OrderService orderService;
+    private AmbulanceBookingService ambulanceBookingService;
 
     @RequestMapping("/registerPage")
     public String registerAmbulancePage(){
@@ -85,12 +88,13 @@ public class AmbulanceController {
         if(!(authentication instanceof AnonymousAuthenticationToken)) {
             UserDetails userDetails = (UserDetails) authentication.getPrincipal();
             Vendor vendor = vendorService.getByUserName(userDetails.getUsername());
-            List<Order> orders = orderService.getOrdersByVendor(vendor);
-            return new ModelAndView("vendor/loginSuccess", "orderList", orders);
+            List<Ambulance> ambulances = ambulanceService.getByVendor(vendor);
+            List<AmbulanceBooking> ambulanceBookings = new ArrayList<AmbulanceBooking>();
+            for(Ambulance ambulance : ambulances){
+                ambulanceBookings.addAll(ambulanceBookingService.getByAmbulanceId(ambulance.getId()));
+            }
+            return new ModelAndView("vendor/loginSuccess", "ambulance Booking", ambulanceBookings);
         }
         return new ModelAndView("error");
     }
-
-
-
 }
