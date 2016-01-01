@@ -1,6 +1,7 @@
 package com.dawaaii.service.ambulance;
 
 import com.dawaaii.model.ambulance.Ambulance;
+import com.dawaaii.model.vendor.Vendor;
 
 import java.util.List;
 
@@ -14,6 +15,8 @@ public interface AmbulanceService {
     Ambulance getById(String ambulanceId);
 
     List<Ambulance> getAll();
+
+    List<Ambulance> getByVendor(Vendor vendor);
 
     Long getCount();
 

@@ -2,13 +2,18 @@ package com.dawaaii.controller;
 
 import com.dawaaii.model.vendor.Vendor;
 import com.dawaaii.service.vendor.VendorService;
+import com.dawaaii.util.FileUtil;
 import com.dawaaii.viewmodel.vendor.VendorViewModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.io.File;
+import java.io.IOException;
 
 /**
  * Created by rohit on 27/11/15.
@@ -25,7 +30,7 @@ public class HomeController {
             @RequestParam(value = "logout", required = false) String logout,
             @RequestParam(value = "msg", required = false) String message) {
 
-        ModelAndView model = new ModelAndView("vendor/login");
+        ModelAndView model = new ModelAndView("index");
         model.addObject("msg", message);
         if (error != null) {
             model.addObject("error", "Either Userid or Password is incorrect, Try Again");
@@ -42,10 +47,24 @@ public class HomeController {
     }
 
     @RequestMapping(value = "vendorRegister", method = RequestMethod.POST)
-    public String vendorRegister(VendorViewModel vendorViewModel){
+    public ModelAndView vendorRegister(VendorViewModel vendorViewModel){
+        if(vendorService.getByUserName(vendorViewModel.getUserName()) != null){
+            return new ModelAndView("vendor/register", "error", "user id already taken");
+        }
+        String filePath = "/opt/dawaaii/upload/"+vendorViewModel.getUserName();
+        FileUtil.createDirectoryIfNotExist(filePath);
+        String savedFilePath = filePath+"/"+vendorViewModel.getFile().getOriginalFilename();
+        File file = new File(savedFilePath);
+        try {
+            FileCopyUtils.copy(vendorViewModel.getFile().getBytes(), file);
+            vendorViewModel.setProfilePicPath(savedFilePath);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         Vendor vendor = vendorViewModel.getVendorFromViewModel();
         vendorService.saveVendor(vendor);
-        return "vendor/login";
+
+        return new ModelAndView("vendor/login","registerSuccess","Registration successful!!");
     }
 
     @RequestMapping(value = "")

@@ -1,6 +1,7 @@
 package com.dawaaii.service.ambulance.impl;
 
 import com.dawaaii.model.ambulance.Ambulance;
+import com.dawaaii.model.vendor.Vendor;
 import com.dawaaii.repository.mongo.ambulance.AmbulanceRepository;
 import com.dawaaii.service.ambulance.AmbulanceService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,11 @@ public class AmbulanceServiceImpl implements AmbulanceService {
     @Override
     public List<Ambulance> getAll() {
         return ambulanceRepository.findAll();
+    }
+
+    @Override
+    public List<Ambulance> getByVendor(Vendor vendor) {
+        return ambulanceRepository.findByVendor(vendor);
     }
 
     @Override

@@ -25,6 +25,11 @@ public class AmbulanceViewModel {
     private String imagePath;
     private CommonsMultipartFile file;
 
+    private String vehicleName;
+    private String vehicleModel;
+    private String driverName;
+
+
     public Ambulance getAmbulanceFromViewModel(Vendor vendor){
         Ambulance ambulance = new Ambulance();
         ambulance.setServiceProviderName(this.serviceProviderName);

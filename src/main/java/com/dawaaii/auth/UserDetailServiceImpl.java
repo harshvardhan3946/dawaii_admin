@@ -24,13 +24,13 @@ public class UserDetailServiceImpl implements UserDetailsService{
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Vendor vendor = vendorService.getByEmail(username);
+        Vendor vendor = vendorService.getByUserName(username);
         if(vendor == null || !vendor.isActive()) {
             throw new UsernameNotFoundException("Name not found!");
         }
         else{
             List<SimpleGrantedAuthority> simpleGrantedAuthorities = Arrays.asList(new SimpleGrantedAuthority(vendor.getRole()));
-            return  new User(vendor.getEmail(),vendor.getPassword(),simpleGrantedAuthorities);
+            return  new User(vendor.getUserName(),vendor.getPassword(),simpleGrantedAuthorities);
         }
     }
 }

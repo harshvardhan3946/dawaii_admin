@@ -9,5 +9,5 @@ public interface VendorService {
 
     Vendor saveVendor(Vendor vendor);
 
-    Vendor getByEmail(String email);
+    Vendor getByUserName(String email);
 }
