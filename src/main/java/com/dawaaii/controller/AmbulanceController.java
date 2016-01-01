@@ -2,11 +2,9 @@ package com.dawaaii.controller;
 
 import com.dawaaii.model.ambulance.Ambulance;
 import com.dawaaii.model.ambulancebooking.AmbulanceBooking;
-import com.dawaaii.model.order.Order;
 import com.dawaaii.model.vendor.Vendor;
 import com.dawaaii.service.ambulance.AmbulanceService;
 import com.dawaaii.service.ambulancebooking.AmbulanceBookingService;
-import com.dawaaii.service.order.OrderService;
 import com.dawaaii.service.vendor.VendorService;
 import com.dawaaii.util.FileUtil;
 import com.dawaaii.viewmodel.ambulance.AmbulanceViewModel;
@@ -48,7 +46,7 @@ public class AmbulanceController {
 
 
     @RequestMapping(value = "/register", method = POST)
-    public String registerAmbulance(AmbulanceViewModel ambulanceViewModel){
+    public ModelAndView registerAmbulance(AmbulanceViewModel ambulanceViewModel){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if(!(authentication instanceof AnonymousAuthenticationToken)) {
             UserDetails userDetails = (UserDetails) authentication.getPrincipal();
@@ -65,9 +63,9 @@ public class AmbulanceController {
             }
             Ambulance ambulance = ambulanceViewModel.getAmbulanceFromViewModel(vendor);
             ambulanceService.save(ambulance);
-            return "ambulance/registerAmbulanceSuccess";
+            return new ModelAndView("vendor/loginSuccess","success","Registration successfull");
         }
-        return "error";
+        return new ModelAndView("error");
     }
 
     @RequestMapping(value = "/viewAmbulances")
@@ -82,7 +80,7 @@ public class AmbulanceController {
         return new ModelAndView("error");
     }
 
-    @RequestMapping(value = "/viewAmbulances")
+    @RequestMapping(value = "/viewOrders")
     public ModelAndView viewOrders(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if(!(authentication instanceof AnonymousAuthenticationToken)) {

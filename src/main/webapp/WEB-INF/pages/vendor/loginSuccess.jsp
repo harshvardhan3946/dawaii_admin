@@ -68,7 +68,7 @@ ${ambulanceList}
 <div class="container">
 
     <ul class="nav nav-tabs">
-        <li class="active"><a data-toggle="tab" href="#home">My Orders</a></li>
+        <li class="active"><a href="/ambulance/viewOrders">My Orders</a></li>
         <li><a href="/ambulance/viewAmbulances">My Ambulance</a></li>
         <li><a data-toggle="tab" href="#menu2">Add Ambulance</a></li>
         <li><a data-toggle="tab" href="#menu3">My Account</a></li>
