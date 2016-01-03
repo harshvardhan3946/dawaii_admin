@@ -2,6 +2,7 @@ package com.dawaaii.controller;
 
 import com.dawaaii.model.vendor.Vendor;
 import com.dawaaii.service.vendor.VendorService;
+import com.dawaaii.util.CommonConstants;
 import com.dawaaii.util.FileUtil;
 import com.dawaaii.viewmodel.vendor.VendorViewModel;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,16 +52,9 @@ public class HomeController {
         if(vendorService.getByUserName(vendorViewModel.getUserName()) != null){
             return new ModelAndView("vendor/register", "error", "user id already taken");
         }
-        String filePath = "/opt/dawaaii/upload/"+vendorViewModel.getUserName();
-        FileUtil.createDirectoryIfNotExist(filePath);
-        String savedFilePath = filePath+"/"+vendorViewModel.getFile().getOriginalFilename();
-        File file = new File(savedFilePath);
-        try {
-            FileCopyUtils.copy(vendorViewModel.getFile().getBytes(), file);
-            vendorViewModel.setProfilePicPath(savedFilePath);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        String filePath = CommonConstants.BASE_PATH + vendorViewModel.getUserName()+"/"+vendorViewModel.getFile().getOriginalFilename();
+        FileUtil.saveFile(filePath,vendorViewModel.getFile().getBytes());
+        vendorViewModel.setProfilePicPath(filePath);
         Vendor vendor = vendorViewModel.getVendorFromViewModel();
         vendorService.saveVendor(vendor);
 
@@ -69,6 +63,4 @@ public class HomeController {
 
     @RequestMapping(value = "")
     public String index(){ return "index"; }
-
-
 }

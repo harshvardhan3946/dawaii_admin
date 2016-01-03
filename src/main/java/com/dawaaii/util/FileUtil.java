@@ -1,6 +1,12 @@
 package com.dawaaii.util;
 
+import org.springframework.util.FileCopyUtils;
+
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 /**
  * Created by rohit on 22/12/15.
@@ -12,5 +18,16 @@ public class FileUtil {
             return file.mkdirs();
         }
         return true;
+    }
+
+    public static void saveFile(String path, byte[] bytes){
+        Path pathToFile = Paths.get(path);
+        try {
+            Files.createDirectories(pathToFile.getParent());
+            File file = new File(path);
+            FileCopyUtils.copy(bytes, file);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
