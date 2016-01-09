@@ -64,61 +64,55 @@
     </script>
 </head>
 <body>
-<c:forEach var="ambulance"
-           items="${ambulanceList}"
-           varStatus="status">
-    "${ambulance.serviceProviderName}"
-    "${ambulance.description}"
-    "${ambulance.city}"
-    "${ambulance.state}"
-    "${ambulance.area}"
-    "${ambulance.address}"
-    "${ambulance.contactNumber}"
-    "${ambulance.mobileNumber}"
-    "${ambulance.email}"
-    "${ambulance.vendor}"
-    "${ambulance.imagePath}"
-    <br>
-</c:forEach>
-
 <h2 align="center"><img src="/resources/images/logo.png" /></h2>
 <div class="container">
 
 <ul class="nav nav-tabs">
     <li><a href="/ambulance/viewAmbulances">My Ambulance</a></li>
-    <li><a href="/ambulance/viewOrders">My Orders</a></li>
-    <li class="active"><a href="/ambulance/registerPage">Add Ambulance</a></li>
+    <li class="active"><a href="/ambulance/viewOrders">My Orders</a></li>
+    <li><a href="/ambulance/registerPage">Add Ambulance</a></li>
     <%--<li><a data-toggle="tab" href="#menu3">My Account</a></li>--%>
     <%--<li><a data-toggle="tab" href="#menu4">Contact Us</a></li>--%>
 </ul>
 
 <div class="tab-content">
-    <div id="menu2" class="tab-pane fade in active">
-        <h3>Add Ambulance</h3>
-        ${success}
-        <form method="post" action="/ambulance/register" enctype="multipart/form-data">
-            <ul>
-                <li><label>Ambulance Image</label> <input type="file" name="file" required/></li>
-                <li><label>Service Provider Name</label> <input type="text" name="serviceProviderName" placeholder="Service Provider Name" required/></li>
-                <li><label>Description</label> <input type="text" name="description" placeholder="Description" required/></li>
-                <li><label>City</label> <input type="text" name="city" placeholder="City" required/></li>
-                <li><label>State</label> <input type="text" name="state" placeholder="State" required/></li>
-                <li><label>Area</label> <input type="text" name="area" placeholder="Area" required/></li>
-                <li><label>Address</label> <input type="text" name="address" placeholder="Address" required/></li>
-                <li><label>Contact Number</label> <input type="text" name="contactNumber" placeholder="Contact Number" required/></li>
-                <li><label>Mobile Number</label> <input type="text" name="mobileNumber" placeholder="Mobile Number" required/></li>
-                <li><label>Email</label> <input type="text" name="email" placeholder="Email"/></li>
-                <li><label>Vehicle Name</label> <input type="text" name="vehicleName" placeholder="Vehicle   Name" /></li>
-                <li><label>Make / Model</label> <input type="text" name="vehicleModel" placeholder="Make / Model" /></li>
-                <li><label>Registraton Number</label> <input type="text" name="vehicleNumber" placeholder="Registraton Number" /></li>
-                <li><label>Driver Name</label> <input type="text" name="driverName" placeholder="Driver Name" /></li>
+    <div id="home" class="tab-pane fade in active">
+        <h3>My Orders</h3>
+        <div id="dvData">
 
-                <li><label>&nbsp;</label> <input type="submit" name="submit" class="ambulance" value="Add Ambulance" /></li>
+            <table class="ordertable">
+                <thead>
+                <tr>
+                    <th>User Email</th>
+                    <th>User Number</th>
+                    <th>User EmailId</th>
+                    <th>Vehicle Number</th>
+                    <th>Date of Booking</th>
+                    <th>Total Price</th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach var="ambulaneBooking"
+                           items="${ambulanceBookings}"
+                           varStatus="status">
+                    <tr>
+                        <td>"${ambulaneBooking.name}"</td>
+                        <td>"${ambulaneBooking.number}"</td>
+                        <td>"${ambulaneBooking.email}"</td>
+                        <td>"${ambulaneBooking.vehicleNumber}"</td>
+                        <td>"${ambulaneBooking.date}"</td>
+                        <td>"${ambulaneBooking.price}"</td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
 
-            </ul>
-        </form>
+        </div>
 
-    </div>]
+        <a href="#" class="export">Export INTO Excel</a>
+
+
+    </div>
 </div>
 
 </div>

@@ -28,7 +28,28 @@ public class AmbulanceViewModel {
     private String vehicleName;
     private String vehicleModel;
     private String driverName;
+    private String vehicleNumber;
 
+    public AmbulanceViewModel(Ambulance ambulance){
+        this.serviceProviderName = ambulance.getServiceProviderName();
+        this.description = ambulance.getDescription();
+        this.city = ambulance.getCity();
+        this.state = ambulance.getState();
+        this.area = ambulance.getArea();
+        this.address = ambulance.getAddress();
+        this.contactNumber = ambulance.getContactNumber();
+        this.mobileNumber = ambulance.getMobileNumber();
+        this.email = ambulance.getEmail();
+        this.point = ambulance.getPoint();
+        this.vendor = ambulance.getVendor();
+        this.imagePath = ambulance.getImagePath();
+        //todo get this file from the file system
+        this.file = null;
+        this.vehicleName=ambulance.getVehicleName();
+        this.vehicleModel = ambulance.getVehicleModel();
+        this.driverName = ambulance.getDriverName();
+        this.vehicleNumber = ambulance.getVehicleNumber();
+    }
 
     public Ambulance getAmbulanceFromViewModel(Vendor vendor){
         Ambulance ambulance = new Ambulance();
@@ -44,6 +65,9 @@ public class AmbulanceViewModel {
         ambulance.setPoint(new Point(0,0));
         ambulance.setVendor(vendor);
         ambulance.setImagePath(this.imagePath);
+        ambulance.setVehicleModel(this.vehicleModel);
+        ambulance.setVehicleName(this.vehicleName);
+        ambulance.setDriverName(this.driverName);
         return ambulance;
     }
 
@@ -149,5 +173,37 @@ public class AmbulanceViewModel {
 
     public void setFile(CommonsMultipartFile file) {
         this.file = file;
+    }
+
+    public String getVehicleName() {
+        return vehicleName;
+    }
+
+    public void setVehicleName(String vehicleName) {
+        this.vehicleName = vehicleName;
+    }
+
+    public String getVehicleModel() {
+        return vehicleModel;
+    }
+
+    public void setVehicleModel(String vehicleModel) {
+        this.vehicleModel = vehicleModel;
+    }
+
+    public String getDriverName() {
+        return driverName;
+    }
+
+    public void setDriverName(String driverName) {
+        this.driverName = driverName;
+    }
+
+    public String getVehicleNumber() {
+        return vehicleNumber;
+    }
+
+    public void setVehicleNumber(String vehicleNumber) {
+        this.vehicleNumber = vehicleNumber;
     }
 }

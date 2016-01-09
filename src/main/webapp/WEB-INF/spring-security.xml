@@ -12,9 +12,10 @@
         <!--<security:intercept-url pattern="/products/**" access="hasRole('ICONNECT_WEBSITE_ROLE_USER')" />-->
 
         <security:intercept-url pattern="/test/**" access="ROLE_USER" />
+        <security:intercept-url pattern="/ambulance/**" access="ROLE_USER" />
         <security:form-login
                 login-page="/login"
-                default-target-url="/ambulance/registerPage"
+                default-target-url="/ambulance/viewAmbulances"
                 authentication-failure-url="/login?error"
                 username-parameter="username"
                 password-parameter="password"/>

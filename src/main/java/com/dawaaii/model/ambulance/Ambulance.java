@@ -22,8 +22,14 @@ public class Ambulance extends BaseDocument {
     private String mobileNumber;
     private String email;
     private Point point;
+    private Double price;
+    private AmbulanceType ambulanceType;
     private Vendor vendor;
     private String imagePath;
+    private String vehicleNumber;
+    private String vehicleName;
+    private String vehicleModel;
+    private String driverName;
 
     public String getServiceProviderName() {
         return serviceProviderName;
@@ -105,6 +111,22 @@ public class Ambulance extends BaseDocument {
         this.point = point;
     }
 
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    public AmbulanceType getAmbulanceType() {
+        return ambulanceType;
+    }
+
+    public void setAmbulanceType(AmbulanceType ambulanceType) {
+        this.ambulanceType = ambulanceType;
+    }
+
     public Vendor getVendor() {
         return vendor;
     }
@@ -121,15 +143,59 @@ public class Ambulance extends BaseDocument {
         this.imagePath = imagePath;
     }
 
+    public String getVehicleNumber() {
+        return vehicleNumber;
+    }
+
+    public void setVehicleNumber(String vehicleNumber) {
+        this.vehicleNumber = vehicleNumber;
+    }
+
+    public String getVehicleName() {
+        return vehicleName;
+    }
+
+    public void setVehicleName(String vehicleName) {
+        this.vehicleName = vehicleName;
+    }
+
+    public String getVehicleModel() {
+        return vehicleModel;
+    }
+
+    public void setVehicleModel(String vehicleModel) {
+        this.vehicleModel = vehicleModel;
+    }
+
+    public String getDriverName() {
+        return driverName;
+    }
+
+    public void setDriverName(String driverName) {
+        this.driverName = driverName;
+    }
+
     @Override
     public String toString() {
         return "Ambulance{" +
                 "serviceProviderName='" + serviceProviderName + '\'' +
                 ", description='" + description + '\'' +
                 ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
                 ", area='" + area + '\'' +
                 ", address='" + address + '\'' +
                 ", contactNumber='" + contactNumber + '\'' +
+                ", mobileNumber='" + mobileNumber + '\'' +
+                ", email='" + email + '\'' +
+                ", point=" + point +
+                ", price=" + price +
+                ", ambulanceType=" + ambulanceType +
+                ", vendor=" + vendor +
+                ", imagePath='" + imagePath + '\'' +
+                ", vehicleNumber='" + vehicleNumber + '\'' +
+                ", vehicleName='" + vehicleName + '\'' +
+                ", vehicleModel='" + vehicleModel + '\'' +
+                ", driverName='" + driverName + '\'' +
                 '}';
     }
 }

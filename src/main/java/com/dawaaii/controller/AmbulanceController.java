@@ -8,6 +8,7 @@ import com.dawaaii.service.ambulancebooking.AmbulanceBookingService;
 import com.dawaaii.service.vendor.VendorService;
 import com.dawaaii.util.CommonConstants;
 import com.dawaaii.util.FileUtil;
+import com.dawaaii.viewmodel.ambulance.AmbulanceBookingViewModel;
 import com.dawaaii.viewmodel.ambulance.AmbulanceViewModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
@@ -18,7 +19,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
@@ -38,7 +41,7 @@ public class AmbulanceController {
 
     @RequestMapping("/registerPage")
     public String registerAmbulancePage(){
-        return "vendor/loginSuccess";
+            return "vendor/register";
     }
 
 
@@ -53,7 +56,7 @@ public class AmbulanceController {
             ambulanceViewModel.setImagePath(filePath);
             Ambulance ambulance = ambulanceViewModel.getAmbulanceFromViewModel(vendor);
             ambulanceService.save(ambulance);
-            return new ModelAndView("vendor/loginSuccess","success","Registration successfull");
+            return new ModelAndView("redirect:vendor/register","success","Registration successful");
         }
         return new ModelAndView("error");
     }
@@ -65,7 +68,11 @@ public class AmbulanceController {
             UserDetails userDetails = (UserDetails) authentication.getPrincipal();
             Vendor vendor = vendorService.getByUserName(userDetails.getUsername());
             List<Ambulance> ambulanceList = ambulanceService.getByVendor(vendor);
-            return new ModelAndView("vendor/loginSuccess", "ambulanceList", ambulanceList);
+            List<AmbulanceViewModel> ambulanceViewModelList = new ArrayList<AmbulanceViewModel>();
+            for(Ambulance ambulance:ambulanceList){
+                ambulanceViewModelList.add(new AmbulanceViewModel(ambulance));
+            }
+            return new ModelAndView("vendor/loginSuccess", "ambulanceList", ambulanceViewModelList);
         }
         return new ModelAndView("error");
     }
@@ -77,7 +84,11 @@ public class AmbulanceController {
             UserDetails userDetails = (UserDetails) authentication.getPrincipal();
             Vendor vendor = vendorService.getByUserName(userDetails.getUsername());
             List<AmbulanceBooking> ambulanceBookings = ambulanceBookingService.getByVendor(vendor);
-            return new ModelAndView("vendor/loginSuccess", "ambulance Booking", ambulanceBookings);
+            List<AmbulanceBookingViewModel> ambulanceViewModels = new ArrayList<AmbulanceBookingViewModel>();
+            for(AmbulanceBooking ambulanceBooking:ambulanceBookings){
+                ambulanceViewModels.add(new AmbulanceBookingViewModel(ambulanceBooking,ambulanceService.getById(ambulanceBooking.getAmbulanceId())));
+            }
+            return new ModelAndView("vendor/orders", "ambulanceBookings", ambulanceViewModels);
         }
         return new ModelAndView("error");
     }

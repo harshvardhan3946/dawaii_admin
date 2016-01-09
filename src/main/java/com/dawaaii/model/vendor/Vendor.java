@@ -21,6 +21,7 @@ public class Vendor extends BaseDocument {
     private String profilePicPath;
     private String password;
     private String role;
+    private VendorType vendorType;
     private boolean active;
 
 
@@ -102,6 +103,14 @@ public class Vendor extends BaseDocument {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public VendorType getVendorType() {
+        return vendorType;
+    }
+
+    public void setVendorType(VendorType vendorType) {
+        this.vendorType = vendorType;
     }
 
     public boolean isActive() {

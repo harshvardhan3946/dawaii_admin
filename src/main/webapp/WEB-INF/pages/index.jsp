@@ -506,7 +506,6 @@ libs/jquery/1.3.0/jquery.min.js"></script>
 </span>
             </label>
             <input class="btn btn-theme btn-block" type="submit" value="SIGN IN"><i class="fa fa-lock"></i>
-            <input class="btn btn-theme btn-block" type="submit" value="SIGN UP"><i class="fa fa-sign-in"></i>
             <hr>
         </div>
     </form>
@@ -527,9 +526,11 @@ libs/jquery/1.3.0/jquery.min.js"></script>
             <input type="text" id="username" name="userName" value="" class="form-control" placeholder="Username" required="">
             <input type="text" id="username" name="password" value="" class="form-control" placeholder="Password" required="">
             <input id="username" type="file" name="file" class="form-control" size="35" placeholder="Upload Photo" required="">
+            <select name="vendorType">
+                <option value="AMBULANCE">AMBULANCE</option>
+            </select>
 
             <input class="btn btn-theme btn-block" type="submit" value="SIGN UP"><i class="fa fa-sign-in"></i>
-            <input class="btn btn-theme btn-block" type="submit" value="SIGN IN"><i class="fa fa-lock"></i>
 
         </div>
     </form>
