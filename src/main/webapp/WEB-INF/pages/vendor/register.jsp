@@ -64,23 +64,6 @@
     </script>
 </head>
 <body>
-<c:forEach var="ambulance"
-           items="${ambulanceList}"
-           varStatus="status">
-    "${ambulance.serviceProviderName}"
-    "${ambulance.description}"
-    "${ambulance.city}"
-    "${ambulance.state}"
-    "${ambulance.area}"
-    "${ambulance.address}"
-    "${ambulance.contactNumber}"
-    "${ambulance.mobileNumber}"
-    "${ambulance.email}"
-    "${ambulance.vendor}"
-    "${ambulance.imagePath}"
-    <br>
-</c:forEach>
-
 <h2 align="center"><img src="/resources/images/logo.png" /></h2>
 <div class="container">
 
@@ -128,4 +111,18 @@
 
 </div>
 </body>
+<script>
+
+    $(document).ready(function () {
+
+        if ('${msg}'.length>0) {
+            alert('${msg}')
+        }
+        if ('${error}'.length>0) {
+            alert('${error}')
+        }
+
+    });
+
+</script>
 </html>

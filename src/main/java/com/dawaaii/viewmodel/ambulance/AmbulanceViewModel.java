@@ -30,6 +30,8 @@ public class AmbulanceViewModel {
     private String driverName;
     private String vehicleNumber;
 
+    public AmbulanceViewModel(){}
+
     public AmbulanceViewModel(Ambulance ambulance){
         this.serviceProviderName = ambulance.getServiceProviderName();
         this.description = ambulance.getDescription();
@@ -67,6 +69,7 @@ public class AmbulanceViewModel {
         ambulance.setImagePath(this.imagePath);
         ambulance.setVehicleModel(this.vehicleModel);
         ambulance.setVehicleName(this.vehicleName);
+        ambulance.setVehicleNumber(this.vehicleNumber);
         ambulance.setDriverName(this.driverName);
         return ambulance;
     }

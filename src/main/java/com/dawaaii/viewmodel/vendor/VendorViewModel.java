@@ -1,6 +1,7 @@
 package com.dawaaii.viewmodel.vendor;
 
 import com.dawaaii.model.vendor.Vendor;
+import com.dawaaii.model.vendor.VendorType;
 import com.dawaaii.util.HashGenerator;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
@@ -19,7 +20,10 @@ public class VendorViewModel {
     private String password;
     private String role;
     private boolean active;
+    private String vendorType;
     private CommonsMultipartFile file;
+
+    public VendorViewModel(){}
 
     public Vendor getVendorFromViewModel(){
         Vendor vendor = new Vendor();
@@ -32,6 +36,7 @@ public class VendorViewModel {
         vendor.setUserName(this.userName);
         vendor.setProfilePicPath(this.profilePicPath);
         vendor.setPassword(HashGenerator.getHash(this.password));
+        vendor.setVendorType(VendorType.valueOf(this.vendorType));
         vendor.setRole("ROLE_USER");
         vendor.setActive(true);
         return vendor;
@@ -123,6 +128,14 @@ public class VendorViewModel {
 
     public void setActive(boolean active) {
         this.active = active;
+    }
+
+    public String getVendorType() {
+        return vendorType;
+    }
+
+    public void setVendorType(String vendorType) {
+        this.vendorType = vendorType;
     }
 
     public CommonsMultipartFile getFile() {

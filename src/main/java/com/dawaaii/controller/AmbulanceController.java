@@ -56,7 +56,7 @@ public class AmbulanceController {
             ambulanceViewModel.setImagePath(filePath);
             Ambulance ambulance = ambulanceViewModel.getAmbulanceFromViewModel(vendor);
             ambulanceService.save(ambulance);
-            return new ModelAndView("redirect:vendor/register","success","Registration successful");
+            return new ModelAndView("redirect:/ambulance/registerPage","msg","Registration successful");
         }
         return new ModelAndView("error");
     }

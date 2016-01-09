@@ -16,6 +16,8 @@ public class AmbulanceBookingViewModel {
     private Date date;
     private Double price;
 
+    public AmbulanceBookingViewModel(){}
+
     public AmbulanceBookingViewModel(AmbulanceBooking ambulanceBooking, Ambulance ambulance) {
         this.name = ambulanceBooking.getName();
         this.email = ambulanceBooking.getEmail();

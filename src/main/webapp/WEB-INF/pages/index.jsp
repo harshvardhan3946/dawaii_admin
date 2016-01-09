@@ -524,7 +524,7 @@ libs/jquery/1.3.0/jquery.min.js"></script>
             <input type="text" id="username" name="address" value="" class="form-control" placeholder="Address" required="">
             <input type="text" id="username" name="city" value="" class="form-control" placeholder="City" required="">
             <input type="text" id="username" name="userName" value="" class="form-control" placeholder="Username" required="">
-            <input type="text" id="username" name="password" value="" class="form-control" placeholder="Password" required="">
+            <input type="password" id="username" name="password" value="" class="form-control" placeholder="Password" required="">
             <input id="username" type="file" name="file" class="form-control" size="35" placeholder="Upload Photo" required="">
             <select name="vendorType">
                 <option value="AMBULANCE">AMBULANCE</option>
@@ -538,4 +538,18 @@ libs/jquery/1.3.0/jquery.min.js"></script>
 <!-- End Login -->
 
 </body>
+<script>
+
+    $(document).ready(function () {
+
+        if ('${msg}'.length>0) {
+            alert('${msg}')
+        }
+        if ('${error}'.length>0) {
+            alert('${error}')
+        }
+
+    });
+
+</script>
 </html>

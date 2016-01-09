@@ -19,7 +19,7 @@
                 authentication-failure-url="/login?error"
                 username-parameter="username"
                 password-parameter="password"/>
-        <security:logout invalidate-session="true" logout-success-url="/users/login?logout" />
+        <security:logout invalidate-session="true" logout-success-url="/login?logout" />
         <!--<security:intercept-url pattern="/orders/**" access="hasRole('ICONNECT_WEBSITE_ROLE_USER')" />
         <security:intercept-url pattern="/orderstate/**" access="hasRole('ICONNECT_WEBSITE_ROLE_USER')" />
         <security:access-denied-handler error-page="/accessDenied" />

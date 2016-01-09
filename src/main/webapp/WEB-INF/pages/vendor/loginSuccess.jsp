@@ -67,6 +67,8 @@
 
 
 <h2 align="center"><img src="/resources/images/logo.png" /></h2>
+<c:url value="/j_spring_security_logout" var="logoutUrl" />
+<a href="${logoutUrl}"><span class="sprite-image login"> | </span>Logout</a>
 <div class="container">
 
     <ul class="nav nav-tabs">
@@ -97,11 +99,11 @@
                            items="${ambulanceList}"
                            varStatus="status">
                     <tr>
-                        <td>"${ambulance.vehicleNumber}"</td>
-                        <td>"${ambulance.driverName}"</td>
-                        <td>"${ambulance.mobileNumber}"</td>
-                        <td>"${ambulance.contactNumber}"</td>
-                        <td>"${ambulance.email}"</td>
+                        <td>${ambulance.vehicleNumber}</td>
+                        <td>${ambulance.driverName}</td>
+                        <td>${ambulance.mobileNumber}</td>
+                        <td>${ambulance.contactNumber}</td>
+                        <td>${ambulance.email}</td>
                         </tr>
                 </c:forEach>
                 </tbody>
@@ -119,4 +121,18 @@
 
 </div>
 </body>
+<script>
+
+    $(document).ready(function () {
+
+        if ('${msg}'.length>0) {
+            alert('${msg}')
+        }
+        if ('${error}'.length>0) {
+            alert('${error}')
+        }
+
+    });
+
+</script>
 </html>

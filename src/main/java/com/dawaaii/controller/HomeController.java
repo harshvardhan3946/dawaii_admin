@@ -34,7 +34,7 @@ public class HomeController {
         ModelAndView model = new ModelAndView("index");
         model.addObject("msg", message);
         if (error != null) {
-            model.addObject("error", "Either Userid or Password is incorrect, Try Again");
+            model.addObject("error", "Either UserId or Password is incorrect, Try Again");
         }
         if (logout != null) {
             model.addObject("msg", "You have been logged out successfully.");
@@ -58,7 +58,7 @@ public class HomeController {
         Vendor vendor = vendorViewModel.getVendorFromViewModel();
         vendorService.saveVendor(vendor);
 
-        return new ModelAndView("vendor/login","registerSuccess","Registration successful!!");
+        return new ModelAndView("index","msg","Registration successful!!");
     }
 
     @RequestMapping(value = "")

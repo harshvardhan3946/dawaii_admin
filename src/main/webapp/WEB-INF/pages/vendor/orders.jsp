@@ -96,12 +96,12 @@
                            items="${ambulanceBookings}"
                            varStatus="status">
                     <tr>
-                        <td>"${ambulaneBooking.name}"</td>
-                        <td>"${ambulaneBooking.number}"</td>
-                        <td>"${ambulaneBooking.email}"</td>
-                        <td>"${ambulaneBooking.vehicleNumber}"</td>
-                        <td>"${ambulaneBooking.date}"</td>
-                        <td>"${ambulaneBooking.price}"</td>
+                        <td>${ambulaneBooking.name}</td>
+                        <td>${ambulaneBooking.number}</td>
+                        <td>${ambulaneBooking.email}</td>
+                        <td>${ambulaneBooking.vehicleNumber}</td>
+                        <td>${ambulaneBooking.date}</td>
+                        <td>${ambulaneBooking.price}</td>
                     </tr>
                 </c:forEach>
                 </tbody>
@@ -122,4 +122,18 @@
 
 </div>
 </body>
+<script>
+
+    $(document).ready(function () {
+
+        if ('${msg}'.length>0) {
+            alert('${msg}')
+        }
+        if ('${error}'.length>0) {
+            alert('${error}')
+        }
+
+    });
+
+</script>
 </html>

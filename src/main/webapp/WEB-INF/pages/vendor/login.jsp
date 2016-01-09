@@ -37,4 +37,18 @@
 <a href="/register" id="register">Register</a>
 
 </body>
+<script>
+
+    $(document).ready(function () {
+
+        if ('${msg}'.length>0) {
+            alert('${msg}')
+        }
+        if ('${error}'.length>0) {
+            alert('${error}')
+        }
+
+    });
+
+</script>
 </html>
