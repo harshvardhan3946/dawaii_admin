@@ -502,7 +502,7 @@ libs/jquery/1.3.0/jquery.min.js"></script>
             <input type="password" id="password" name="password" value="" class="form-control" placeholder="Password" required="">
             <label class="checkbox">
 <span class="pull-right">
-<a data-toggle="modal" href="login.html#myModal"> Forgot Password?</a>
+<%--<a data-toggle="modal" href="login.html#myModal"> Forgot Password?</a>--%>
 </span>
             </label>
             <input class="btn btn-theme btn-block" type="submit" value="SIGN IN"><i class="fa fa-lock"></i>
@@ -525,7 +525,7 @@ libs/jquery/1.3.0/jquery.min.js"></script>
             <input type="text" id="username" name="city" value="" class="form-control" placeholder="City" required="">
             <input type="text" id="username" name="userName" value="" class="form-control" placeholder="Username" required="">
             <input type="password" id="username" name="password" value="" class="form-control" placeholder="Password" required="">
-            <input id="username" type="file" name="file" class="form-control" size="35" placeholder="Upload Photo" required="">
+            <input id="username" type="file" name="file" class="form-control" size="35" placeholder="Upload Photo" accept="image/x-png, image/gif, image/jpeg" required="">
             <select name="vendorType">
                 <option value="AMBULANCE">AMBULANCE</option>
             </select>

@@ -2,7 +2,7 @@
 <html lang="en">
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <head>
-    <title>Bootstrap Case</title>
+    <title>Register Ambulance</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
@@ -65,6 +65,8 @@
 </head>
 <body>
 <h2 align="center"><img src="/resources/images/logo.png" /></h2>
+<c:url value="/j_spring_security_logout" var="logoutUrl" />
+<a href="${logoutUrl}"><span class="sprite-image login"> | </span>Logout</a>
 <div class="container">
 
 <ul class="nav nav-tabs">
@@ -81,7 +83,7 @@
         ${success}
         <form method="post" action="/ambulance/register" enctype="multipart/form-data">
             <ul>
-                <li><label>Ambulance Image</label> <input type="file" name="file" required/></li>
+                <li><label>Ambulance Image</label> <input type="file" name="file" accept="image/x-png, image/gif, image/jpeg"  required/></li>
                 <li><label>Service Provider Name</label> <input type="text" name="serviceProviderName" placeholder="Service Provider Name" required/></li>
                 <li><label>Description</label> <input type="text" name="description" placeholder="Description" required/></li>
                 <li><label>City</label> <input type="text" name="city" placeholder="City" required/></li>

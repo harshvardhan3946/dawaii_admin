@@ -2,9 +2,12 @@ package com.dawaaii.controller;
 
 import com.dawaaii.model.ambulance.Ambulance;
 import com.dawaaii.model.ambulancebooking.AmbulanceBooking;
+import com.dawaaii.model.sms.SendSms;
 import com.dawaaii.model.vendor.Vendor;
 import com.dawaaii.service.ambulance.AmbulanceService;
 import com.dawaaii.service.ambulancebooking.AmbulanceBookingService;
+import com.dawaaii.service.email.EmailNotificationService;
+import com.dawaaii.service.sms.SMSNotificationService;
 import com.dawaaii.service.vendor.VendorService;
 import com.dawaaii.util.CommonConstants;
 import com.dawaaii.util.FileUtil;
@@ -38,6 +41,10 @@ public class AmbulanceController {
     private VendorService vendorService;
     @Autowired
     private AmbulanceBookingService ambulanceBookingService;
+    @Autowired
+    private EmailNotificationService emailNotificationService;
+    @Autowired
+    private SMSNotificationService smsNotificationService;
 
     @RequestMapping("/registerPage")
     public String registerAmbulancePage(){
@@ -56,6 +63,9 @@ public class AmbulanceController {
             ambulanceViewModel.setImagePath(filePath);
             Ambulance ambulance = ambulanceViewModel.getAmbulanceFromViewModel(vendor);
             ambulanceService.save(ambulance);
+            emailNotificationService.sendEmail(ambulance.getEmail(),null,null,"Ambulance Registered","Ambulance registration successful");
+            SendSms sendSms = new SendSms("ambulance registration successful",ambulance.getMobileNumber());
+            smsNotificationService.sendSMS(sendSms);
             return new ModelAndView("redirect:/ambulance/registerPage","msg","Registration successful");
         }
         return new ModelAndView("error");

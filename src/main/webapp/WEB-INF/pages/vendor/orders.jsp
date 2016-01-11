@@ -65,6 +65,9 @@
 </head>
 <body>
 <h2 align="center"><img src="/resources/images/logo.png" /></h2>
+<c:url value="/j_spring_security_logout" var="logoutUrl" />
+<a href="${logoutUrl}"><span class="sprite-image login"> | </span>Logout</a>
+<div class="container">
 <div class="container">
 
 <ul class="nav nav-tabs">
