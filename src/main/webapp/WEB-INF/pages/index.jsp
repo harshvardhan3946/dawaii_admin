@@ -11,11 +11,13 @@
     <title>Dawaaii:: Welcome Dawaaii.com | Online Medical Portal Noida</title>
     <link href="/resources/css/style.css" rel="stylesheet" type="text/css" />
     <script src="/resources/js/jquery-1.10.2.min.js" type="text/javascript"></script>
-    <script src="/resources/js/custom.js" type="text/javascript"></script>
+
     <meta name="viewport" content="width=device-width, user-scalable=no" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-
+    <link href="<c:url value='/resources/css/toastr.css'/>" rel="stylesheet" type="text/css"/>
+    <script src="<c:url value='/resources/js/toastr.js'/>"></script>
+    <script src="/resources/js/custom.js" type="text/javascript"></script>
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/
 libs/jquery/1.3.0/jquery.min.js"></script>
@@ -519,7 +521,7 @@ libs/jquery/1.3.0/jquery.min.js"></script>
         <div class="login-wrap">
             <input type="text" id="username" name="firstName" value="" class="form-control" placeholder="First Name" required="">
             <input type="text" id="username" name="lastName" value="" class="form-control" placeholder="Last Name" required="">
-            <input type="text" id="username" name="email" value="" class="form-control" placeholder="Email Id" required="">
+            <input type="email" id="username" name="email" value="" class="form-control" placeholder="Email Id" required="">
             <input type="number" class="form-control" name="phoneNumber" id="phone" value="" size="35" placeholder="Phone Number" required="">
             <input type="text" id="username" name="address" value="" class="form-control" placeholder="Address" required="">
             <input type="text" id="username" name="city" value="" class="form-control" placeholder="City" required="">
@@ -543,10 +545,10 @@ libs/jquery/1.3.0/jquery.min.js"></script>
     $(document).ready(function () {
 
         if ('${msg}'.length>0) {
-            alert('${msg}')
+            toastr.success('${msg}')
         }
         if ('${error}'.length>0) {
-            alert('${error}')
+            toastr.error('${error}')
         }
 
     });

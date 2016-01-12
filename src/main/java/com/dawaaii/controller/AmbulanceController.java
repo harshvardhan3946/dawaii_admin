@@ -20,7 +20,10 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,13 +50,17 @@ public class AmbulanceController {
     private SMSNotificationService smsNotificationService;
 
     @RequestMapping("/registerPage")
-    public String registerAmbulancePage(){
-            return "vendor/register";
+    public ModelAndView registerAmbulancePage( @RequestParam(value = "error", required = false) String error,
+                                         @RequestParam(value = "msg", required = false) String message){
+            ModelAndView modelAndView = new ModelAndView("vendor/register");
+            modelAndView.addObject("msg",message);
+            modelAndView.addObject("error",error);
+            return modelAndView;
     }
 
 
     @RequestMapping(value = "/register", method = POST)
-    public ModelAndView registerAmbulance(AmbulanceViewModel ambulanceViewModel){
+    public ModelAndView registerAmbulance(AmbulanceViewModel ambulanceViewModel,RedirectAttributes redirectAttributes){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if(!(authentication instanceof AnonymousAuthenticationToken)) {
             UserDetails userDetails = (UserDetails) authentication.getPrincipal();
@@ -66,7 +73,8 @@ public class AmbulanceController {
             emailNotificationService.sendEmail(ambulance.getEmail(),null,null,"Ambulance Registered","Ambulance registration successful");
             SendSms sendSms = new SendSms("ambulance registration successful",ambulance.getMobileNumber());
             smsNotificationService.sendSMS(sendSms);
-            return new ModelAndView("redirect:/ambulance/registerPage","msg","Registration successful");
+            redirectAttributes.addAttribute("msg","Registration successful");
+            return new ModelAndView("redirect:/ambulance/registerPage");
         }
         return new ModelAndView("error");
     }

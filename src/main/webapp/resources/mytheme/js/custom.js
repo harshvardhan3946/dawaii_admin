@@ -1,3 +1,17 @@
+toastr.options = {
+    "closeButton": true,
+    "debug": false,
+    "positionClass": "toast-center",
+    "onclick": null,
+    "showDuration": "300",
+    "hideDuration": "1000",
+    "timeOut": "2000",
+    "extendedTimeOut": "1000",
+    "showEasing": "swing",
+    "hideEasing": "linear",
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
+};
 $(document).ready(function(){
 		//for mobile footer
 		$('.combinedBttns div').on('click',function(){

@@ -6,6 +6,7 @@ import com.dawaaii.util.ReadPropertyFileUtility;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -20,6 +21,7 @@ public class SMSNotificationServiceImpl implements SMSNotificationService {
     private static final String TEMPLATE_NAME = "smsConfigurationTemplate";
     private static final Logger LOGGER = LoggerFactory.getLogger(SMSNotificationServiceImpl.class);
 
+    @Async
     @Override
     public void sendSMS(SendSms sendSMS) {
         RestTemplate restTemplate = new RestTemplate();

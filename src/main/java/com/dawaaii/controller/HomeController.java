@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.File;
 import java.io.IOException;
@@ -48,19 +49,25 @@ public class HomeController {
     }
 
     @RequestMapping(value = "vendorRegister", method = RequestMethod.POST)
-    public ModelAndView vendorRegister(VendorViewModel vendorViewModel){
+    public ModelAndView vendorRegister(VendorViewModel vendorViewModel, RedirectAttributes redirectAttributes){
         if(vendorService.getByUserName(vendorViewModel.getUserName()) != null){
-            return new ModelAndView("vendor/register", "error", "user id already taken");
+            return new ModelAndView("index", "error", "user id already taken");
         }
         String filePath = CommonConstants.BASE_PATH + vendorViewModel.getUserName()+"/"+vendorViewModel.getFile().getOriginalFilename();
         FileUtil.saveFile(filePath,vendorViewModel.getFile().getBytes());
         vendorViewModel.setProfilePicPath(filePath);
         Vendor vendor = vendorViewModel.getVendorFromViewModel();
         vendorService.saveVendor(vendor);
-
-        return new ModelAndView("index","msg","Registration successful!!");
+        redirectAttributes.addAttribute("msg","Registration successful");
+        return new ModelAndView("redirect:");
     }
 
     @RequestMapping(value = "")
-    public String index(){ return "index"; }
+    public ModelAndView index(@RequestParam(value = "error", required = false) String error,
+                        @RequestParam(value = "msg", required = false) String message){
+        ModelAndView modelAndView = new ModelAndView("index");
+        modelAndView.addObject("msg",message);
+        modelAndView.addObject("error",error);
+        return modelAndView;
+    }
 }
