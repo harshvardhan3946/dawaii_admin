@@ -59,7 +59,7 @@ public class HomeController {
         Vendor vendor = vendorViewModel.getVendorFromViewModel();
         vendorService.saveVendor(vendor);
         redirectAttributes.addAttribute("msg","Registration successful");
-        return new ModelAndView("redirect:");
+        return new ModelAndView("redirect:/");
     }
 
     @RequestMapping(value = "")
