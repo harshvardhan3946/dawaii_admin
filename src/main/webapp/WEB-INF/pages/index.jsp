@@ -2,22 +2,22 @@
 <html lang="en" xml:lang="en">
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <head>
-    <link rel="shortcut icon" href="/resources/images/favicon.ico" type="image/x-icon" />
-    <link rel="icon" href="/resources/images/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="<c:url value='/resources/images/favicon.ico'/>" type="image/x-icon" />
+    <link rel="icon" href="<c:url value='/resources/images/favicon.ico'/>" type="image/x-icon" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name='verify-v1' content='1e470597ffe8b80bb524b403a9d7a7d5'/>
     <meta name="keywords" content="online medical portal noida, Buy Medicines, Fix appointments, Locate hospitals, In-House Nursing, Health Articles, First Aid Tips, BMI Calculators" />
     <meta name="description" content="Dawaaii.com is an entryway that satisfies regular medicinal necessities of its clients." />
     <title>Dawaaii:: Welcome Dawaaii.com | Online Medical Portal Noida</title>
-    <link href="/resources/css/style.css" rel="stylesheet" type="text/css" />
-    <script src="/resources/js/jquery-1.10.2.min.js" type="text/javascript"></script>
+    <link href="<c:url value='/resources/css/style.css" rel="stylesheet'/>" type="text/css" />
+    <script src="<c:url value='/resources/js/jquery-1.10.2.min.js'/>" type="text/javascript"></script>
 
     <meta name="viewport" content="width=device-width, user-scalable=no" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link href="<c:url value='/resources/css/toastr.css'/>" rel="stylesheet" type="text/css"/>
     <script src="<c:url value='/resources/js/toastr.js'/>"></script>
-    <script src="/resources/js/custom.js" type="text/javascript"></script>
+    <script src="<c:url value='/resources/js/custom.js'/>" type="text/javascript"></script>
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/
 libs/jquery/1.3.0/jquery.min.js"></script>
@@ -76,7 +76,7 @@ libs/jquery/1.3.0/jquery.min.js"></script>
         var rowCount = 1;
         function addMoreRows(frm) {
             rowCount ++;
-            var recRow = '<p style="padding: 10px 0px;" id="rowCount'+rowCount+'"><input type="text" name="search" class="fsearch" placeholder="Eg: Crocin Advance" id="chatinput1" onkeyup="showtext()"><a href="javascript:void(0);" onclick="removeRow('+rowCount+');"><img style="margin: 0px 0px 0px 3px; padding-top: 0px;    float: right; width: 49px;height: 46px;" src="/resources/images/idelete.jpg"></a></p>';
+            var recRow = '<p style="padding: 10px 0px;" id="rowCount'+rowCount+'"><input type="text" name="search" class="fsearch" placeholder="Eg: Crocin Advance" id="chatinput1" onkeyup="showtext()"><a href="javascript:void(0);" onclick="removeRow('+rowCount+');"><img style="margin: 0px 0px 0px 3px; padding-top: 0px;    float: right; width: 49px;height: 46px;" src="<c:url value='/resources/images/idelete.jpg'/>"></a></p>';
             jQuery('#addedRows').append(recRow);
         }
 
@@ -128,13 +128,13 @@ libs/jquery/1.3.0/jquery.min.js"></script>
             <!-- topRightPart -->
             <div class="topRightPart">
                 <div class="topBarIcon locationCont">
-                    <p><a href="#"><img title="cart" alt="My Cart"  src="/resources/images/location_icon.png"/></a></p>
+                    <p><a href="#"><img title="cart" alt="My Cart"  src="<c:url value='/resources/images/location_icon.png'/>"/></a></p>
                 </div>
                 <div class="topBarIcon favCont">
-                    <p><a href="#"><img title="cart" alt="My Cart"  src="/resources/images/fav_icon.png"/></a></p>
+                    <p><a href="#"><img title="cart" alt="My Cart"  src="<c:url value='/resources/images/fav_icon.png'/>"/></a></p>
                 </div>
                 <div class="topBarIcon cartCont">
-                    <p><a href="#"><img title="cart" alt="My Cart"  src="/resources/images/cart_icon.png"/></a></p>
+                    <p><a href="#"><img title="cart" alt="My Cart"  src="<c:url value='/resources/images/cart_icon.png'/>"/></a></p>
                 </div>
                 <div class="topBarText joinUsCont">
                     <p><a href="#">Join Us</a></p>
@@ -155,7 +155,7 @@ libs/jquery/1.3.0/jquery.min.js"></script>
     <div class="logoBar">
         <!-- logo -->
         <div class="logoCont">
-            <h1><a href="/index.php"><img title="dawaaii.com" alt="Home"  src="/resources/images/logo.png"/></a></h1>
+            <h1><a href="/index.php"><img title="dawaaii.com" alt="Home"  src="<c:url value='/resources/images/logo.png'/>"/></a></h1>
         </div><!-- /logo -->
 
         <!-- navigation -->
@@ -175,10 +175,10 @@ libs/jquery/1.3.0/jquery.min.js"></script>
         <div class="utilityCont">
             <!-- Search -->
             <div class="searchCont">
-                <a href="#"><img title="Search" alt="Search"  src="/resources/images/search.jpg"/></a>
+                <a href="#"><img title="Search" alt="Search"  src="<c:url value='/resources/images/search.jpg'/>"/></a>
             </div><!-- /Search -->
             <div class="phoneCont">
-                <a href="#"><img title="phone number" alt="phone number"  src="/resources/images/phone_icon.jpg"/></a>
+                <a href="#"><img title="phone number" alt="phone number"  src="<c:url value='/resources/images/phone_icon.jpg'/>"/></a>
             </div>
             <div class="clear"></div>
         </div><!-- /utilityCont -->
@@ -200,7 +200,7 @@ libs/jquery/1.3.0/jquery.min.js"></script>
             <div class="container-left">
 
                 <h1 class="margin-none">
-                    <img class="img-responsive" src="/resources/images/search_discount_title_images.png" style="width:600px;height:70px;" alt="Discounts on Online Medicines and Pharmacy">
+                    <img class="img-responsive" src="<c:url value='/resources/images/search_discount_title_images.png'/>" style="width:600px;height:70px;" alt="Discounts on Online Medicines and Pharmacy">
                 </h1>
 
                 <input type="text" name="search" class="fsearch" placeholder="Eg: Crocin Advance" id='chatinput1' onkeyup="showtext()">
@@ -421,10 +421,10 @@ libs/jquery/1.3.0/jquery.min.js"></script>
         <div class="rightColFooter onlyMob">
             <div class="appBttns">
                 <div class="appsDwnld">
-                    <a href="#"><img title="google play" alt="google play"  src="/resources/images/g_play.jpg"/></a>
+                    <a href="#"><img title="google play" alt="google play"  src="<c:url value='/resources/images/g_play.jpg'>"/></a>
                 </div>
                 <div class="appsDwnld">
-                    <a href="#"><img title="app store" alt="app store"  src="/resources/images/app_store.jpg"/></a>
+                    <a href="#"><img title="app store" alt="app store"  src="<c:url value='/resources/images/app_store.jpg'/>"/></a>
                 </div>
                 <div class="clear"></div>
             </div>
@@ -446,25 +446,25 @@ libs/jquery/1.3.0/jquery.min.js"></script>
         <!-- social sites -->
         <div class="shareIconsCont">
             <div class="shareIcons">
-                <a href="#"><img title="facebook" alt="facebook"  src="/resources/images/fb_icon.png"/></a>
+                <a href="#"><img title="facebook" alt="facebook"  src="<c:url value='/resources/images/fb_icon.png'/>"/></a>
             </div>
             <div class="shareIcons">
-                <a href="#"><img title="tweeter" alt="tweeter"  src="/resources/images/tweet_icon.png"/></a>
+                <a href="#"><img title="tweeter" alt="tweeter"  src="<c:url value='/resources/images/tweet_icon.png'/>"/></a>
             </div>
             <div class="shareIcons">
-                <a href="#"><img title="linkdIn" alt="linkdIn"  src="/resources/images/lkin_icon.png"/></a>
+                <a href="#"><img title="linkdIn" alt="linkdIn"  src="<c:url value='/resources/images/lkin_icon.png'/>"/></a>
             </div>
             <div class="shareIcons">
-                <a href="#"><img title="google plus" alt="google plus"  src="/resources/images/gplus_icon.png"/></a>
+                <a href="#"><img title="google plus" alt="google plus"  src="<c:url value='/resources/images/gplus_icon.png'/>"/></a>
             </div>
             <div class="shareIcons">
-                <a href="#"><img title="RSS Feed" alt="RSS Feed"  src="/resources/images/rss_icon.png"/></a>
+                <a href="#"><img title="RSS Feed" alt="RSS Feed"  src="<c:url value='/resources/images/rss_icon.png'/>"/></a>
             </div>
             <div class="shareIcons">
-                <a href="#"><img title="youtube" alt="youtube"  src="/resources/images/ytube_icon.png"/></a>
+                <a href="#"><img title="youtube" alt="youtube"  src="<c:url value='/resources/images/ytube_icon.png'/>"/></a>
             </div>
             <div class="shareIcons">
-                <a href="#"><img title="pin it" alt="pin it"  src="/resources/images/pin_icon.png"/></a>
+                <a href="#"><img title="pin it" alt="pin it"  src="<c:url value='/resources/images/pin_icon.png'/>"/></a>
             </div>
             <div class="clear"></div>
         </div><!-- /social sites -->
@@ -493,7 +493,7 @@ libs/jquery/1.3.0/jquery.min.js"></script>
 <!-- Login -->
 <div id="overlay-back"></div>
 <div id="popup">
-    <img src="/resources/images/Deep_Close.png" class="close-image" id="closeButton"/>
+    <img src="<c:url value='/resources/images/Deep_Close.png'/>" class="close-image" id="closeButton"/>
     <c:url value="./j_spring_security_check" var="loginUrl" />
     <form action="${loginUrl}" accept-charset="utf-8" class="form-login" method='post'>
         <h2 class="form-login-heading">sign in now</h2>
@@ -514,7 +514,7 @@ libs/jquery/1.3.0/jquery.min.js"></script>
 </div>
 
 <div id="popup_sign">
-    <img src="/resources/images/Deep_Close.png" class="close-image" id="closeButtonsignup"/>
+    <img src="<c:url value='/resources/images/Deep_Close.png'/>" class="close-image" id="closeButtonsignup"/>
     <form action="/vendorRegister" method="post" accept-charset="utf-8" class="form-login" enctype="multipart/form-data">
         <h2 class="form-login-heading">sign up now</h2>
 

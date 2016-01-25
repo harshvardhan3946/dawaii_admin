@@ -5,12 +5,12 @@
     <title>Register Ambulance</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
-    <script src="/resources/js/jquery.min.js"></script>
-    <script src="/resources/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="<c:url value='/resources/css/bootstrap.min.css'/>">
+    <script src="<c:url value='/resources/js/jquery.min.js'/>"></script>
+    <script src="<c:url value='/resources/js/bootstrap.min.js'/>"></script>
     <link href="<c:url value='/resources/css/toastr.css'/>" rel="stylesheet" type="text/css"/>
     <script src="<c:url value='/resources/js/toastr.js'/>"></script>
-    <script src="/resources/js/custom.js" type="text/javascript"></script>
+    <script src="<c:url value='/resources/js/custom.js'/>" type="text/javascript"></script>
     <script>
         $(document).ready(function () {
 
@@ -67,7 +67,7 @@
     </script>
 </head>
 <body>
-<h2 align="center"><img src="/resources/images/logo.png" /></h2>
+<h2 align="center"><img src="<c:url value='/resources/images/logo.png'/>" /></h2>
 <c:url value="/j_spring_security_logout" var="logoutUrl" />
 <a href="${logoutUrl}"><span class="sprite-image login"> | </span>Logout</a>
 <div class="container">

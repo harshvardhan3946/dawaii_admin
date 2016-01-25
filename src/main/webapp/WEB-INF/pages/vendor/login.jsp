@@ -11,7 +11,7 @@
 <head>
     <link href="<c:url value='/resources/css/toastr.css'/>" rel="stylesheet" type="text/css"/>
     <script src="<c:url value='/resources/js/toastr.js'/>"></script>
-    <script src="/resources/js/custom.js" type="text/javascript"></script>
+    <script src="<c:url value='/resources/js/custom.js'/>" type="text/javascript"></script>
     <title></title>
 </head>
 <body>
