@@ -74,9 +74,9 @@
 <div class="container">
 
 <ul class="nav nav-tabs">
-    <li><a href="/ambulance/viewAmbulances">My Ambulance</a></li>
-    <li class="active"><a href="/ambulance/viewOrders">My Orders</a></li>
-    <li><a href="/ambulance/registerPage">Add Ambulance</a></li>
+    <li><a href="<c:url value='/ambulance/viewAmbulances'/>">My Ambulance</a></li>
+    <li class="active"><a href="<c:url value='/ambulance/viewOrders'/>">My Orders</a></li>
+    <li><a href="<c:url value='/ambulance/registerPage'/>">Add Ambulance</a></li>
     <%--<li><a data-toggle="tab" href="#menu3">My Account</a></li>--%>
     <%--<li><a data-toggle="tab" href="#menu4">Contact Us</a></li>--%>
 </ul>

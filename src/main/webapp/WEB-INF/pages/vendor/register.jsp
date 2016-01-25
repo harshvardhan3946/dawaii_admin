@@ -73,9 +73,9 @@
 <div class="container">
 
 <ul class="nav nav-tabs">
-    <li><a href="/ambulance/viewAmbulances">My Ambulance</a></li>
-    <li><a href="/ambulance/viewOrders">My Orders</a></li>
-    <li class="active"><a href="/ambulance/registerPage">Add Ambulance</a></li>
+    <li><a href="<c:url value='/ambulance/viewAmbulances'/>">My Ambulance</a></li>
+    <li><a href="<c:url value='/ambulance/viewOrders'/>">My Orders</a></li>
+    <li class="active"><a href="<c:url value='/ambulance/registerPage'/>">Add Ambulance</a></li>
     <%--<li><a data-toggle="tab" href="#menu3">My Account</a></li>--%>
     <%--<li><a data-toggle="tab" href="#menu4">Contact Us</a></li>--%>
 </ul>
@@ -84,7 +84,7 @@
     <div id="menu2" class="tab-pane fade in active">
         <h3>Add Ambulance</h3>
         ${success}
-        <form method="post" action="/ambulance/register" enctype="multipart/form-data">
+        <form method="post" action="<c:url value='/ambulance/register'/>" enctype="multipart/form-data">
             <ul>
                 <li><label>Ambulance Image</label> <input type="file" name="file" accept="image/x-png, image/gif, image/jpeg"  required/></li>
                 <li><label>Service Provider Name</label> <input type="text" name="serviceProviderName" placeholder="Service Provider Name" required/></li>

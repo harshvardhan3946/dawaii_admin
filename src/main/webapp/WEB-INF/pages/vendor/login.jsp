@@ -37,7 +37,7 @@
     </div>
     <button type="submit" class="btn btn-default">Login</button>
 </form>
-<a href="/register" id="register">Register</a>
+<a href="<c:url value='/register'/>" id="register">Register</a>
 
 </body>
 <script>

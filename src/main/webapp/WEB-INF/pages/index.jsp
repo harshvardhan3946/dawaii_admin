@@ -19,8 +19,7 @@
     <script src="<c:url value='/resources/js/toastr.js'/>"></script>
     <script src="<c:url value='/resources/js/custom.js'/>" type="text/javascript"></script>
 
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/
-libs/jquery/1.3.0/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.0/jquery.min.js"></script>
 
 
 
@@ -421,10 +420,10 @@ libs/jquery/1.3.0/jquery.min.js"></script>
         <div class="rightColFooter onlyMob">
             <div class="appBttns">
                 <div class="appsDwnld">
-                    <a href="#"><img title="google play" alt="google play"  src="<c:url value='/resources/images/g_play.jpg'>"/></a>
+                    <a href="#"><img title="google play" alt="google play"  src="<c:url value='/resources/images/g_play.jpg'/>"></a>
                 </div>
                 <div class="appsDwnld">
-                    <a href="#"><img title="app store" alt="app store"  src="<c:url value='/resources/images/app_store.jpg'/>"/></a>
+                    <a href="#"><img title="app store" alt="app store"  src="<c:url value='/resources/images/app_store.jpg'/>"></a>
                 </div>
                 <div class="clear"></div>
             </div>
@@ -446,25 +445,25 @@ libs/jquery/1.3.0/jquery.min.js"></script>
         <!-- social sites -->
         <div class="shareIconsCont">
             <div class="shareIcons">
-                <a href="#"><img title="facebook" alt="facebook"  src="<c:url value='/resources/images/fb_icon.png'/>"/></a>
+                <a href="#"><img title="facebook" alt="facebook"  src="<c:url value='/resources/images/fb_icon.png'/>"></a>
             </div>
             <div class="shareIcons">
-                <a href="#"><img title="tweeter" alt="tweeter"  src="<c:url value='/resources/images/tweet_icon.png'/>"/></a>
+                <a href="#"><img title="tweeter" alt="tweeter"  src="<c:url value='/resources/images/tweet_icon.png'/>"></a>
             </div>
             <div class="shareIcons">
-                <a href="#"><img title="linkdIn" alt="linkdIn"  src="<c:url value='/resources/images/lkin_icon.png'/>"/></a>
+                <a href="#"><img title="linkdIn" alt="linkdIn"  src="<c:url value='/resources/images/lkin_icon.png'/>"></a>
             </div>
             <div class="shareIcons">
-                <a href="#"><img title="google plus" alt="google plus"  src="<c:url value='/resources/images/gplus_icon.png'/>"/></a>
+                <a href="#"><img title="google plus" alt="google plus"  src="<c:url value='/resources/images/gplus_icon.png'/>"></a>
             </div>
             <div class="shareIcons">
-                <a href="#"><img title="RSS Feed" alt="RSS Feed"  src="<c:url value='/resources/images/rss_icon.png'/>"/></a>
+                <a href="#"><img title="RSS Feed" alt="RSS Feed"  src="<c:url value='/resources/images/rss_icon.png'/>"></a>
             </div>
             <div class="shareIcons">
-                <a href="#"><img title="youtube" alt="youtube"  src="<c:url value='/resources/images/ytube_icon.png'/>"/></a>
+                <a href="#"><img title="youtube" alt="youtube"  src="<c:url value='/resources/images/ytube_icon.png'/>"></a>
             </div>
             <div class="shareIcons">
-                <a href="#"><img title="pin it" alt="pin it"  src="<c:url value='/resources/images/pin_icon.png'/>"/></a>
+                <a href="#"><img title="pin it" alt="pin it"  src="<c:url value='/resources/images/pin_icon.png'/>"></a>
             </div>
             <div class="clear"></div>
         </div><!-- /social sites -->
@@ -515,7 +514,7 @@ libs/jquery/1.3.0/jquery.min.js"></script>
 
 <div id="popup_sign">
     <img src="<c:url value='/resources/images/Deep_Close.png'/>" class="close-image" id="closeButtonsignup"/>
-    <form action="/vendorRegister" method="post" accept-charset="utf-8" class="form-login" enctype="multipart/form-data">
+    <form action="<c:url value='/vendorRegister'/>" method="post" accept-charset="utf-8" class="form-login" enctype="multipart/form-data">
         <h2 class="form-login-heading">sign up now</h2>
 
         <div class="login-wrap">
